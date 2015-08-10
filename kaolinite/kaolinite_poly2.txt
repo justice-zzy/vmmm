@@ -1,0 +1,3 @@
+define polyTemp selected; 
+select all; spacefill off; wireframe off;
+select polyTemp; wireframe on;

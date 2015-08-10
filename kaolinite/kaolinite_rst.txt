@@ -1,0 +1,1 @@
+reset; select all; polyhedra off; wireframe 40; spacefill 120

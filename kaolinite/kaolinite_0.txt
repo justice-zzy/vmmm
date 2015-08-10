@@ -1,0 +1,4 @@
+load kaolinite.mol; set perspectivedepth off; 
+select all; polyhedra off; spacefill off; wireframe off; 
+select atomno=4 or connected(atomno=4); zoom (atomno=4)
+wireframe 40; spacefill 120

@@ -1,0 +1,1 @@
+select all; polyhedra off; spacefill off; wireframe on; select within(2.2, aluminum) or (hydrogen); wireframe 40; spacefill 120

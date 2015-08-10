@@ -1,0 +1,62 @@
+select all; wireframe off; spacefill off; polyhedra off; isosurface delete; lcaocartoon delete
+select atomno=4; 
+spacefill off; 
+lcaoCartoon COLOR [240 200 160]
+lcaoCartoon TRANSLUCENT
+lcaoCartoon SCALE 1.0
+lcaocartoon create "sp3a"; lcaocartoon create "sp3b"; lcaocartoon create "sp3c"; lcaocartoon create "sp3d";
+#
+delay 2
+#
+isosurface O8 center (atomno=8) sphere 1.0
+color isosurface red;
+color isosurface translucent
+isosurface O23 center (atomno=23) sphere 1.0
+color isosurface red;
+color isosurface translucent
+isosurface O24 center (atomno=24) sphere 1.0
+color isosurface red;
+color isosurface translucent
+isosurface O26 center (atomno=26) sphere 1.0
+color isosurface red;
+color isosurface translucent
+delay 5
+
+select atomno=8; spacefill off; 
+isosurface O8 delete
+isosurface O8Si4 center (atomno=8) lobe {1.13 -0.43 0.06 0.6}
+color isosurface red;
+color isosurface translucent
+isosurface O8Si121 center (atomno=8) lobe {-0.80 0.74 0.53 0.6}
+color isosurface red;
+color isosurface translucent
+#
+#isosurface O8LP1 center (atomno=8) lobe {-0.52548 -0.50928 -0.94428 0.6}
+#color isosurface red;
+#color isosurface translucent
+
+isosurface O8LP2 center (atomno=8) lobe {0.15 0.35 -1.1 0.6}
+color isosurface red;
+color isosurface translucent
+
+isosurface O8LP3 center (atomno=8) lobe {-0.8 -0.6 -0.7 0.6}
+color isosurface red;
+color isosurface translucent
+
+delay 2
+select atomno=121; 
+lcaocartoon create "sp3a"; lcaocartoon create "sp3b"; lcaocartoon create "sp3c"; lcaocartoon create "sp3d";
+#spacefill 120
+delay 2
+# ADD Second Silicon's Oxygens
+isosurface O5 center (atomno=5) sphere 1.0
+color isosurface red;
+color isosurface translucent
+isosurface O7 center (atomno=7) sphere 1.0
+color isosurface red;
+color isosurface translucent
+isosurface O107 center (atomno=107) sphere 1.0
+color isosurface red;
+color isosurface translucent
+
+select atomno=4 or atomno=121; 

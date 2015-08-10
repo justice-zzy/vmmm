@@ -1,0 +1,3 @@
+define bnsTemp selected; 
+select all; polyhedra off; 
+select bnsTemp; wireframe 40; spacefill 120

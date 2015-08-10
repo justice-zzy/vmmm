@@ -1,0 +1,1 @@
+select all; polyhedra off; spacefill off; wireframe on; select (atomno<=17); wireframe 40; spacefill 120

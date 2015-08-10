@@ -1,0 +1,8 @@
+select all; wireframe off; spacefill off; polyhedra off
+lcaoCartoon delete
+isosurface delete
+select atomno=3 or atomno=4 or atomno=121 or atomno=85 or atomno=36 or atomno=37 or atomno=203 or atomno=204 or atomno=84 or atomno=53 or atomno=54 or atomno=201 or atomno=136 or atomno=122
+define SiDoubleChain selected
+select SiDoubleChain or connected(SiDoubleChain)
+spacefill 120; wireframe 40
+

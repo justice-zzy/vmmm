@@ -1,0 +1,8 @@
+select all; wireframe off; spacefill off; polyhedra off
+lcaoCartoon delete
+isosurface delete
+select atomno=3 or atomno=4 or atomno=121 or atomno=85 or atomno=36 or atomno=37
+define SiRing selected
+select SiRing or connected(SiRing)
+spacefill 120; wireframe 40
+

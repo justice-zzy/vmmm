@@ -1,0 +1,4 @@
+define polyTemp selected; 
+select polyTemp and (oxygen or hydrogen); spacefill off; 
+select polyTemp and (aluminum or silicon); polyhedra bonds; color polyhedra translucent; polyhedra edges;
+select polyTemp

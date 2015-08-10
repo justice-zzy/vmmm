@@ -1,0 +1,62 @@
+
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Virtual Museum of Minerals and Molecules">
+<meta name="Copyright" content="Minerals &amp; Molecules Project; http://www.soils.wisc.edu/virtual_museum/menuitems/copyright.html">
+<meta name="robots" content="noindex,nofollow">
+<title>Kaolinite Key</title>
+<link rel="stylesheet" href="../css/jmol_ky.css" type="text/css">
+<script type="text/javascript" src="../scripts/vmmm.js">//  </script><script type="text/javascript">
+      function initFlags() {
+        spacefillFlag = true;
+        wireframeFlag = true;
+        polyCounter = 0;
+        
+        
+        polyCounterMax = 3 ;
+          
+      }
+	  function callPoly() {
+	    if (polyCounter > polyCounterMax) {
+          polyCounter = 0;
+        } 
+	    polyScript = "script kaolinite_poly" + polyCounter + ".txt";
+	    play(polyScript);
+        polyCounter = polyCounter + 1;		  
+	   }
+      function polyResetFlag() {
+        polyCounter = 0;
+      }
+      // Overrides play() in vmmm.js
+      function play(script) {
+        parent.kaolinite_jmol.document.jmol.script(script);
+      }
+</script>
+</head>
+<body bgcolor="#000000" onload="initFlags()">
+<table border="0" width="100%" class="elementTable">
+<tbody>
+<tr>
+<td id="Si">Si</td><td id="Al">Al</td><td id="O">O</td><td id="H">H</td>
+</tr>
+</tbody>
+</table>
+<form>
+<table class="buttonText" width="100%" border="0" bgcolor="#000000">
+<tbody>
+<tr>
+<td><input type="RADIO" id="stk" name="selectDisplayType" onclick="JavaScript:play('script kaolinite_stk.txt');polyResetFlag()">Stick</input></td><td><input type="RADIO" id="bns" name="selectDisplayType" onclick="JavaScript:play('script kaolinite_bns.txt');polyResetFlag()" checked="true">Ball and Stick</input></td><td><input type="RADIO" id="spc" name="selectDisplayType" onclick="JavaScript:play('script kaolinite_spc.txt');polyResetFlag()">Spacefill</input></td><td><input type="radio" name="selectDisplayType" onclick="JavaScript:callPoly()" id="poly">
+    Polyhedral
+  </td><td><img src="../images/chimebutton.gif" alt="button" align="left" width="12" height="12" border="0" onclick="JavaScript:play('select all');">Select All</td><td><img src="../images/chimebutton.gif" alt="button" align="left" width="12" height="12" border="0" onclick="JavaScript:play('script kaolinite_rst.txt')">Reset</td><td>
+<p>
+<a href="visualization.html" target="_top"><img src="../images/chimebutton.gif" alt="@fname" height="12" width="12" border="0" align="left"></a> full window</p>
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+</body>
+</html>

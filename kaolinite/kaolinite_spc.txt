@@ -1,0 +1,6 @@
+define spcTemp selected; 
+select all; polyhedra off;
+select spcTemp and silicon; spacefill 0.42;
+select spcTemp and aluminum; spacefill 0.51;
+select spcTemp and oxygen; spacefill 1.32;
+select spcTemp
