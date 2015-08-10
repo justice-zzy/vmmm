@@ -16,9 +16,6 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 <?php wp_head(); ?>
-
-<script src="<?php echo get_template_directory_uri(); ?>/jsmol/JSmol.min.js"
-
 </head>
 
 <body <?php body_class(); ?>>
