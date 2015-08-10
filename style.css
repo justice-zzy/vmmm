@@ -886,3 +886,41 @@ object {
 .gallery-caption {
 	display: block;
 }
+
+
+
+
+
+
+/****** SEPERATE LATER ******/
+
+.site-header {
+	background: #cccccc;
+}
+
+.site-description {
+	display: none;
+}
+
+.site-branding {
+	width: 50%;
+	float: left;
+}
+
+.main-navigation {
+	float: right;
+	width: 50%;
+	clear: none;
+}
+
+.visuals {
+	float: left;
+	width: 50%;
+}
+
+.contentColumn {
+	float: right;
+	width: 50%;
+	padding: 30px;
+	box-sizing: border-box;
+}
