@@ -39,16 +39,16 @@ var s = document.location.search;
 Jmol._debugCode = (s.indexOf("debugcode") >= 0);
 
 jmol_isReady = function(applet) {
-	document.title = (applet._id + " - Jmol " + Jmol.___JmolVersion)
-	Jmol._getElement(applet, "appletdiv").style.border="1px solid blue"
+	//document.title = (applet._id + " - Jmol " + Jmol.___JmolVersion)
+	//Jmol._getElement(applet, "appletdiv").style.border="1px solid blue"
 }		
 
 var Info = {
 	width: '100%',
-	height: 600,
+	height: 300,
 	debug: false,
 	color: "0x112233",
-	addSelectionOptions: true,
+	addSelectionOptions: false,
 	use: "HTML5",   // JAVA HTML5 WEBGL are all options
 	j2sPath: themePath+"/jsmol/j2s", // this needs to point to where the j2s directory is.
 	jarPath: themePath+"/jsmol/java",// this needs to point to where the java directory is.
@@ -71,30 +71,54 @@ var lastPrompt=0;
 </script>
 
 <div id="appdiv"></div>
-	
+	<!--<a href="javascript:Jmol.script(jmolApplet0,'select *;cartoons off;spacefill 23%;wireframe 0.15')">ball&amp;stick</a>
+			<a href="javascript:Jmol.script(jmolApplet0, 'spin on')">spin on</a>
+
+<a href="javascript:Jmol.script(jmolApplet0, 'spin off')">spin off</a>-->
+		<div class="stdControls">
+			<?php if( have_rows('controls_below_visuals') ) { ?>
+				
+				<?php while ( have_rows('controls_below_visuals') ) : the_row(); ?>
+				
+					<a href="javascript:Jmol.script(jmolApplet0, 'script <?php the_sub_field('control_action'); ?>')"><?php the_sub_field('control_label'); ?></a>
+				
+				<?php endwhile; ?>
+				
+		<?php } ?>
+		</div>
 		</div>
 		
 		<div class="contentColumn">
 		<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-		<div class="entry-meta">
-			<?php vmmm_posted_on(); ?>
-		</div><!-- .entry-meta -->
+		
 	</header><!-- .entry-header -->
 		<?php the_content(); ?>
 		
-		<?php
+		
+
+		<?php if( have_rows('controls_after_content') ) { ?>
+				
+				<?php while ( have_rows('controls_after_content') ) : the_row(); ?>
+				
+					<a href="javascript:Jmol.script(jmolApplet0, 'script <?php the_sub_field('control_action'); ?>')"><?php the_sub_field('control_label'); ?></a>
+				
+				<?php endwhile; ?>
+				
+		<?php } ?>
+		
+		<!--<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'vmmm' ),
 				'after'  => '</div>',
 			) );
-		?>
+		?>-->
 		</div>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+	<!--<footer class="entry-footer">
 		<?php vmmm_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	</footer>--><!-- .entry-footer -->
 </article><!-- #post-## -->
 
