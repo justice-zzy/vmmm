@@ -2,7 +2,9 @@ $( document ).ready(function() {
 	
 	
 	function correctAppletSize() {
-		$("#jmolApplet0_appletinfotablediv").height($(".contentColumn").height());
+		var stdControls = $(".stdControls").height();
+		
+		$("#jmolApplet0_appletinfotablediv").height($(".contentColumn").height()-stdControls);
 	}
 	
 	correctAppletSize();

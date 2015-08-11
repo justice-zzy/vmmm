@@ -75,7 +75,7 @@ var lastPrompt=0;
 			<a href="javascript:Jmol.script(jmolApplet0, 'spin on')">spin on</a>
 
 <a href="javascript:Jmol.script(jmolApplet0, 'spin off')">spin off</a>-->
-		<div class="stdControls">
+		<div class="stdControls cf">
 			<?php if( have_rows('controls_below_visuals') ) { ?>
 				
 				<?php while ( have_rows('controls_below_visuals') ) : the_row(); ?>
@@ -89,7 +89,9 @@ var lastPrompt=0;
 		</div>
 		
 		<div class="contentColumn">
+			<div class="contentColumnInner">
 		<header class="entry-header">
+			
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 		
@@ -114,6 +116,7 @@ var lastPrompt=0;
 				'after'  => '</div>',
 			) );
 		?>-->
+		</div>
 		</div>
 	</div><!-- .entry-content -->
 
