@@ -1,0 +1,127 @@
+[
+    {
+        "key": "group_55c81842c40c6",
+        "title": "Displays Fields",
+        "fields": [
+            {
+                "key": "field_55c81849da007",
+                "label": "MOL File",
+                "name": "mol_file",
+                "prefix": "",
+                "type": "file",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "return_format": "url",
+                "library": "all"
+            },
+            {
+                "key": "field_55c955355ab5f",
+                "label": "Controls After Content",
+                "name": "controls_after_content",
+                "prefix": "",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "min": "",
+                "max": "",
+                "layout": "table",
+                "button_label": "Add Control",
+                "sub_fields": [
+                    {
+                        "key": "field_55c955535ab60",
+                        "label": "Control Label",
+                        "name": "control_label",
+                        "prefix": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "column_width": "",
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "key": "field_55c955a05ab61",
+                        "label": "Control Action",
+                        "name": "control_action",
+                        "prefix": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "column_width": "",
+                        "return_format": "url",
+                        "library": "all"
+                    }
+                ]
+            },
+            {
+                "key": "field_55c95b17374c3",
+                "label": "Controls Below Visuals",
+                "name": "controls_below_visuals",
+                "prefix": "",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "min": "",
+                "max": "",
+                "layout": "table",
+                "button_label": "Add Control",
+                "sub_fields": [
+                    {
+                        "key": "field_55c95b17374c4",
+                        "label": "Control Label",
+                        "name": "control_label",
+                        "prefix": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "key": "field_55c95b17374c5",
+                        "label": "Control Action",
+                        "name": "control_action",
+                        "prefix": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "return_format": "url",
+                        "library": "all"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "display"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": ""
+    }
+]
