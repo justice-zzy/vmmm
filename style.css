@@ -920,8 +920,10 @@ object {
 }
 
 .site-header {
-	background: #cccccc;
-	height: 90px;
+	background: #444444;
+	line-height: 1em;
+	display: flex;
+	width: 100%;
 }
 
 .site-description {
@@ -929,14 +931,39 @@ object {
 }
 
 .site-branding {
-	width: 50%;
-	float: left;
+	/*width: 50%;
+	float: left;*/
+	flex: 1 auto;
+	width: 200px;
 }
 
 .main-navigation {
-	float: right;
-	width: 50%;
+	/*float: right;
+	width: 50%;*/
+	width: auto;
 	clear: none;
+	flex: 1 auto;
+}
+
+.searchContainer {
+	flex: 3 0px;
+}
+
+.searchContainer .search-submit {
+	display: none;
+}
+
+.searchContainer .search-field {
+	width:100%;
+	box-sizing: border-box;
+	height: 56px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	border: none;
+	border-radius: 0px;
+	background: rgba(255,255,255,0.1);
 }
 
 .entry-content {
