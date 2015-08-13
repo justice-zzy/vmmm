@@ -923,6 +923,23 @@ body {
 	display: none;
 }
 
+h1.site-title {
+	margin: 0px;
+}
+
+h1.site-title a {
+	display: block;
+	padding: 8px;
+	height: 56px;
+	
+}
+
+h1.site-title a svg {
+	height: 100%;
+	
+}
+
+
 .site-header {
 	background: #444444;
 	line-height: 1em;
@@ -937,8 +954,8 @@ body {
 .site-branding {
 	/*width: 50%;
 	float: left;*/
-	flex: 1 auto;
-	width: 200px;
+	flex: 0 auto;
+	width: 300px;
 }
 
 .main-navigation {
@@ -946,7 +963,28 @@ body {
 	width: 50%;*/
 	width: auto;
 	clear: none;
-	flex: 1 auto;
+	flex: 0 auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	
+}
+
+.main-navigation a {
+	position: relative;
+	top: 50%;
+	color: rgba(255,255,255,0.8);
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 13px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 14px;
+	padding-right: 14px;
+}
+
+.main-navigation a:hover {
+	background: rgba(255,255,255,0.1);
 }
 
 .searchContainer {
@@ -968,6 +1006,9 @@ body {
 	border: none;
 	border-radius: 0px;
 	background: rgba(255,255,255,0.1);
+	outline: none;
+	letter-spacing: 0.6px;
+	color: rgba(255,255,255,0.9) !important; 
 }
 
 .entry-content {
@@ -1006,6 +1047,10 @@ body {
 .stdControls a:hover {
 	background: rgba(255,255,255,0.2);
 	border-right: 1px solid rgba(255,255,255,0);
+}
+
+.logged-in .visuals, .logged-in .contentColumn {
+	padding-top: 32px;
 }
 
 .visuals {
