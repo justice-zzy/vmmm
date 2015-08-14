@@ -894,7 +894,7 @@ object {
 
 /****** SEPERATE LATER ******/
 
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Raleway:700,300|Roboto:400,700);
 
 body {
 	font-family: "Raleway";
@@ -1130,6 +1130,12 @@ h1.site-title a svg {
 	border-right: 1px solid rgba(255,255,255,0);
 }
 
+.stdControls a.selected {
+	font-weight: bold;
+	background-color: #dbba67;
+	color: rgba(0,0,0,0.5);
+}
+
 .logged-in .visuals, .logged-in .contentColumn {
 	padding-top: 32px;
 }
@@ -1148,7 +1154,7 @@ h1.site-title a svg {
 .contentColumn {
 	
 	width: 50%;
-	
+	background: #f5f5f5;
 	box-sizing: border-box;
 	overflow-y: auto;
 	position: fixed;
@@ -1156,6 +1162,51 @@ h1.site-title a svg {
 	right: 0px;
 	top: 90px;
 	z-index:2;
+	font-family: "Roboto";
+}
+
+.contentColumn h1.entry-title {
+	margin-top: 0px;
+}
+
+.highlightingFeatures {
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+.highlightingFeatures h2 {
+	font-size: 16px;
+	color: #bc9a44;
+}
+
+.highlightingFeatures a {
+	background: url("img/magnifyingglass.svg") no-repeat;
+	background-size: 2em;
+	background-position: 0% 50%;
+	display: block;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	padding: 0.7em;
+	padding-left: 2em;
+	text-decoration: none;
+	color: rgba(0,0,0,0.75);
+	font-weight: 700;
+	font-size: 14px;
+	outline: none;
+}
+
+.highlightingFeatures a:hover {
+	
+	background: rgba(0,0,0,0.06) url("img/magnifyingglass.svg") no-repeat;
+	background-size: 2em;
+	background-position: 0% 50%;
+}
+
+.highlightingFeatures a:active {
+	outline: none;
+}
+
+.highlightingFeatures a.selected {
+	background-color: #fcf8e1;
 }
 
 .contentColumnInner {

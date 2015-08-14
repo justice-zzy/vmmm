@@ -16,6 +16,16 @@ $( document ).ready(function() {
 	$(window).resize(function() {
 		correctAppletSize();
 	});
+	
+	$(".highlightingFeatures a").click(function(e) {
+		$(".highlightingFeatures a").removeClass("selected");
+		$(this).addClass("selected");
+	});
+	
+	$(".stdControls a").click(function(e) {
+		$(".stdControls a").removeClass("selected");
+		$(this).addClass("selected");
+	});
 
 	
 });

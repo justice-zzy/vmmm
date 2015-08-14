@@ -99,15 +99,22 @@ var lastPrompt=0;
 		<?php the_content(); ?>
 		
 		
-
+		
 		<?php if( have_rows('controls_after_content') ) { ?>
-				
+				<div class="highlightingFeatures">
+					<h2>Highlighting Features</h2>
 				<?php while ( have_rows('controls_after_content') ) : the_row(); ?>
 				
 					<a href="javascript:Jmol.script(jmolApplet0, 'script <?php the_sub_field('control_action'); ?>')"><?php the_sub_field('control_label'); ?></a>
 				
 				<?php endwhile; ?>
-				
+				</div>
+		<?php } ?>
+		<?php the_field("post_highlighting_features"); ?>
+		
+		<?php if(get_field("distribution")) { ?>
+			<h2>Distribution</h2>
+			<?php the_field("distribution"); ?>
 		<?php } ?>
 		
 		<!--<?php
