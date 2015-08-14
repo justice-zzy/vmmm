@@ -919,6 +919,84 @@ body {
 }
 
 
+.featureVideo {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	z-index:1;
+}
+
+.videoOverlay {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	z-index:2;
+	background: rgba(0,0,0,0.6);
+}
+
+.featureGraphic {
+	max-width: 360px;
+	margin: 0 auto;
+}
+
+video#molecules {
+position: fixed;
+top: 50%;
+left: 50%;
+min-width: 100%;
+min-height: 100%;
+width: auto;
+height: auto;
+z-index: -100;
+-webkit-transform: translateX(-50%) translateY(-50%);
+transform: translateX(-50%) translateY(-50%);
+background: url(polina.jpg) no-repeat;
+background-size: cover;
+}
+
+.page-template-page-home #content {
+	position:relative;
+}
+
+.page-template-page-home #primary {
+	max-width: 970px;
+	text-align: center;
+	position: fixed;
+	top: 60%;
+	left: 50%;
+	z-index:3;
+	transform: translate(-50%,-50%);
+	color: #fff;
+	
+}
+
+.page-template-page-home .site-main .entry-header h1.entry-title {
+	font-weight: 700;
+	font-size: 30px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	visibility: none;
+	position: absolute;
+	top: -100000px;
+	left: 0px;
+	opacity: 0;	
+}
+
+.page-template-page-home .site-main .entry-content {
+	font-size: 12px;
+	font-family: "Open Sans";
+	color: rgba(255,255,255,0.7);
+	
+}
+
+.page-template-page-home .site-header {
+	background: rgba(65, 65, 65, 0.8);	
+}
+
 .single-display .site-footer {
 	display: none;
 }
@@ -945,6 +1023,8 @@ h1.site-title a svg {
 	line-height: 1em;
 	display: flex;
 	width: 100%;
+	position: relative;
+	z-index:2;
 }
 
 .site-description {
@@ -956,6 +1036,7 @@ h1.site-title a svg {
 	float: left;*/
 	flex: 0 auto;
 	width: 300px;
+	
 }
 
 .main-navigation {
