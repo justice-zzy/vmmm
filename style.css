@@ -956,6 +956,11 @@ z-index: -100;
 transform: translateX(-50%) translateY(-50%);
 background: url(polina.jpg) no-repeat;
 background-size: cover;
+/*-webkit-filter: blur(15px);
+  -moz-filter: blur(15px);
+  -o-filter: blur(15px);
+  -ms-filter: blur(15px);
+  filter: blur(15px);*/
 }
 
 .page-template-page-home #content {
@@ -966,7 +971,7 @@ background-size: cover;
 	max-width: 970px;
 	text-align: center;
 	position: fixed;
-	top: 60%;
+	top: 55%;
 	left: 50%;
 	z-index:3;
 	transform: translate(-50%,-50%);
@@ -1149,6 +1154,7 @@ h1.site-title a svg {
 	left: 0px;
 	top: 90px;
 	z-index:2;
+	background: #112233;
 }
 
 .contentColumn {
@@ -1212,3 +1218,5 @@ h1.site-title a svg {
 .contentColumnInner {
 	padding: 30px;
 }
+
+@import url("jmol_key.css");

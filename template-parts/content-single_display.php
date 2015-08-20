@@ -14,7 +14,8 @@
 		
 		<div class="visuals">
 			<script src="<?php echo get_template_directory_uri(); ?>/jsmol/JSmol.min.js"></script>
-
+			<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/jsmol/JSmol.GLmol.min.js"></script>
+			
 			<script type="text/javascript">
 var themePath = "<?php echo get_template_directory_uri(); ?>";
 var uploadedFile = "<?php the_field('mol_file'); ?>";
@@ -23,10 +24,11 @@ Jmol._isAsync = false;
 
 // last update 2/18/2014 2:10:06 PM
 
+
 var jmolApplet0; // set up in HTML table, below
 
 // logic is set by indicating order of USE -- default is HTML5 for this test page, though
-
+var use = "HTML5"
 var s = document.location.search;
 
 // Developers: The _debugCode flag is checked in j2s/core/core.z.js, 
@@ -49,11 +51,11 @@ var Info = {
 	debug: false,
 	color: "0x112233",
 	addSelectionOptions: false,
-	use: "HTML5",   // JAVA HTML5 WEBGL are all options
+	use: "WEBGL HTML5",   // JAVA HTML5 WEBGL are all options
 	j2sPath: themePath+"/jsmol/j2s", // this needs to point to where the j2s directory is.
-	jarPath: themePath+"/jsmol/java",// this needs to point to where the java directory is.
-	jarFile: "JmolAppletSigned.jar",
-	isSigned: true,
+	//jarPath: themePath+"/jsmol/java",// this needs to point to where the java directory is.
+	//jarFile: "JmolAppletSigned.jar",
+	//isSigned: true,
 	script: "set antialiasDisplay;load "+uploadedFile+"",
 	serverURL: "http://chemapps.stolaf.edu/jmol/jsmol/php/jsmol.php",
 	readyFunction: jmol_isReady,
