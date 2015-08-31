@@ -19,6 +19,8 @@
 			<script type="text/javascript">
 var themePath = "<?php echo get_template_directory_uri(); ?>";
 var uploadedFile = "<?php the_field('mol_file'); ?>";
+
+console.log(uploadedFile);
  
 Jmol._isAsync = false;
 

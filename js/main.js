@@ -13,7 +13,7 @@ $( document ).ready(function() {
 	
 	correctAppletSize();
 	
-	setTimeout(function() { alert("hi"); },5000);
+	//setTimeout(function() { alert("hi"); },5000);
 	
 	
 	$(window).resize(function() {
