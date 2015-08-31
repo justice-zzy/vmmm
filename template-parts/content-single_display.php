@@ -18,12 +18,15 @@
 			
 			<script type="text/javascript">
 				
-			setTimeout(function() {
-				
-			console.log("loading molecule");
+			<?php $protocol = is_ssl() ? 'https' : 'http';
+			$url = "$protocol://"; ?>
+			
+			console.log("<?php echo $url; ?>");
 				
 var themePath = "<?php echo get_template_directory_uri(); ?>";
 var uploadedFile = "<?php the_field('mol_file'); ?>";
+//var uploadedFile = "https://vmmm.triforce.cals.wisc.edu/wp-content/uploads/sites/7/2015/08/kaolinite1.mol";
+
 
 console.log(uploadedFile);
  
@@ -64,7 +67,7 @@ var Info = {
 	//jarFile: "JmolAppletSigned.jar",
 	//isSigned: true,
 	script: "set antialiasDisplay;load "+uploadedFile+"",
-	serverURL: "http://chemapps.stolaf.edu/jmol/jsmol/php/jsmol.php",
+	serverURL: themePath+"/jsmol/php/jsmol.php",
 	readyFunction: jmol_isReady,
 	disableJ2SLoadMonitor: true,
   disableInitialConsole: true,
@@ -78,7 +81,7 @@ $(document).ready(function() {
 })
 var lastPrompt=0;
 
-},3000);
+
 </script>
 
 <div id="appdiv"></div>
