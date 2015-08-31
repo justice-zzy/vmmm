@@ -13,19 +13,19 @@
 	<div class="entry-content">
 		
 		<div class="visuals">
+			<div id="appdiv"></div>
+			
 			<script src="<?php echo get_template_directory_uri(); ?>/jsmol/JSmol.min.js"></script>
 			<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/jsmol/JSmol.GLmol.min.js"></script>
 			
+			
+			
 			<script type="text/javascript">
 				
-			<?php $protocol = is_ssl() ? 'https' : 'http';
-			$url = "$protocol://"; ?>
-			
-			//console.log("<?php echo $url; ?>");
-				
+							
 var themePath = "<?php echo get_template_directory_uri(); ?>";
-var uploadedFile = "<?php urlencode(the_field('mol_file')); ?>";
-//var uploadedFile = "http://alnemec.com/tmp/kaolinite.mol";
+var uploadedFile = "<?php the_field('mol_file'); ?>";
+
 
 
 console.log(uploadedFile);
@@ -38,7 +38,7 @@ Jmol._isAsync = false;
 var jmolApplet0; // set up in HTML table, below
 
 // logic is set by indicating order of USE -- default is HTML5 for this test page, though
-var use = "HTML5"
+
 var s = document.location.search;
 
 // Developers: The _debugCode flag is checked in j2s/core/core.z.js, 
@@ -61,17 +61,18 @@ var Info = {
 	debug: false,
 	color: "0x112233",
 	addSelectionOptions: false,
-	use: "HTML5",   // JAVA HTML5 WEBGL are all options
+	use: "WEBGL HTML5",   // JAVA HTML5 WEBGL are all options
 	j2sPath: themePath+"/jsmol/j2s", // this needs to point to where the j2s directory is.
 	//jarPath: themePath+"/jsmol/java",// this needs to point to where the java directory is.
 	//jarFile: "JmolAppletSigned.jar",
 	//isSigned: true,
-	script: "set antialiasDisplay;load "+uploadedFile+"",
+	//script: "set antialiasDisplay;load "+uploadedFile+"",
+	script: "load "+themePath+"/jsmol/data/caffeine.mol",
 	serverURL: themePath+"/jsmol/php/jsmol.php",
 	readyFunction: jmol_isReady,
 	disableJ2SLoadMonitor: true,
-  disableInitialConsole: true,
-  allowJavaScript: true
+	disableInitialConsole: true,
+  	allowJavaScript: true
 	//defaultModel: "$dopamine",
 	//console: "none", // default will be jmolApplet0_infodiv, but you can designate another div here or "none"
 }
@@ -84,7 +85,7 @@ var lastPrompt=0;
 
 </script>
 
-<div id="appdiv"></div>
+
 	<!--<a href="javascript:Jmol.script(jmolApplet0,'select *;cartoons off;spacefill 23%;wireframe 0.15')">ball&amp;stick</a>
 			<a href="javascript:Jmol.script(jmolApplet0, 'spin on')">spin on</a>
 
