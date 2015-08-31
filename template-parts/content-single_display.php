@@ -24,8 +24,8 @@
 			console.log("<?php echo $url; ?>");
 				
 var themePath = "<?php echo get_template_directory_uri(); ?>";
-var uploadedFile = "<?php the_field('mol_file'); ?>";
-//var uploadedFile = "https://vmmm.triforce.cals.wisc.edu/wp-content/uploads/sites/7/2015/08/kaolinite1.mol";
+//var uploadedFile = "<?php the_field('mol_file'); ?>";
+var uploadedFile = "http://vmmm.hostcals.localhost/tmp/kaolinite.mol";
 
 
 console.log(uploadedFile);
@@ -38,7 +38,7 @@ Jmol._isAsync = false;
 var jmolApplet0; // set up in HTML table, below
 
 // logic is set by indicating order of USE -- default is HTML5 for this test page, though
-var use = "HTML5"
+var use = "WEBGL HTML5"
 var s = document.location.search;
 
 // Developers: The _debugCode flag is checked in j2s/core/core.z.js, 
