@@ -21,11 +21,11 @@
 			<?php $protocol = is_ssl() ? 'https' : 'http';
 			$url = "$protocol://"; ?>
 			
-			console.log("<?php echo $url; ?>");
+			//console.log("<?php echo $url; ?>");
 				
 var themePath = "<?php echo get_template_directory_uri(); ?>";
-//var uploadedFile = "<?php the_field('mol_file'); ?>";
-var uploadedFile = "https://vmmm.triforce.cals.wisc.edu/tmp/kaolinite.mol";
+var uploadedFile = "<?php the_field('mol_file'); ?>";
+//var uploadedFile = "http://alnemec.com/tmp/kaolinite.mol";
 
 
 console.log(uploadedFile);
