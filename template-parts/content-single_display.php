@@ -25,7 +25,7 @@
 				
 var themePath = "<?php echo get_template_directory_uri(); ?>";
 //var uploadedFile = "<?php the_field('mol_file'); ?>";
-var uploadedFile = "http://vmmm.hostcals.localhost/tmp/kaolinite.mol";
+var uploadedFile = "https://vmmm.triforce.cals.wisc.edu/tmp/kaolinite.mol";
 
 
 console.log(uploadedFile);
