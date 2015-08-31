@@ -17,6 +17,11 @@
 			<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/jsmol/JSmol.GLmol.min.js"></script>
 			
 			<script type="text/javascript">
+				
+			setTimeout(function() {
+				
+			console.log("loading molecule");
+				
 var themePath = "<?php echo get_template_directory_uri(); ?>";
 var uploadedFile = "<?php the_field('mol_file'); ?>";
 
@@ -72,6 +77,8 @@ $(document).ready(function() {
   $("#appdiv").html(Jmol.getAppletHtml("jmolApplet0", Info))
 })
 var lastPrompt=0;
+
+},3000);
 </script>
 
 <div id="appdiv"></div>
