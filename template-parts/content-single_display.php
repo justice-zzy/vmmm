@@ -59,7 +59,7 @@ jmol_isReady = function(applet) {
 //var headerHeight = $(".site-branding").height();
 var windowHeight = $(window).height();
 
-var finalHeight = windowHeight - 80;
+var finalHeight = windowHeight - 140;
 //alert(finalHeight);
 
 var Info = {
@@ -97,12 +97,33 @@ var lastPrompt=0;
 			<a href="javascript:Jmol.script(jmolApplet0, 'spin on')">spin on</a>
 
 <a href="javascript:Jmol.script(jmolApplet0, 'spin off')">spin off</a>-->
+
+		
+<div class="key">
+			<?php if( have_rows('key') ) { ?>
+				
+				<?php while ( have_rows('key') ) : the_row(); ?>
+				
+					<div class="element" id="<?php the_sub_field('element'); ?>" title="<?php the_sub_field('element_full_name'); ?>">
+					<?php the_sub_field('element'); ?>
+					</div>
+				
+				<?php endwhile; ?>
+				
+		<?php } ?>
+		</div>
 		<div class="stdControls cf">
+			
+			
 			<?php if( have_rows('controls_below_visuals') ) { ?>
 				
 				<?php while ( have_rows('controls_below_visuals') ) : the_row(); ?>
 				
-					<a href="javascript:Jmol.script(jmolApplet0, 'script <?php the_sub_field('control_action'); ?>')"><?php the_sub_field('control_label'); ?></a>
+					<?php if( get_row_layout() == 'add_formatted_control' ) { ?>
+							<a href="javascript:Jmol.script(jmolApplet0, 'script <?php the_sub_field('control_action'); ?>')"><?php the_sub_field('control_label'); ?></a>
+					<?php } else { ?>
+							<?php the_sub_field('custom_html'); ?>
+					<?php } ?>
 				
 				<?php endwhile; ?>
 				
@@ -127,7 +148,13 @@ var lastPrompt=0;
 					<h2>Highlighting Features</h2>
 				<?php while ( have_rows('controls_after_content') ) : the_row(); ?>
 				
-					<a href="javascript:Jmol.script(jmolApplet0, 'script <?php the_sub_field('control_action'); ?>')"><?php the_sub_field('control_label'); ?></a>
+					<?php if( get_row_layout() == 'add_formatted_control' ) { ?>
+							<a href="javascript:Jmol.script(jmolApplet0, 'script <?php the_sub_field('control_action'); ?>')"><?php the_sub_field('control_label'); ?></a>
+					<?php } else { ?>
+							<?php the_sub_field('custom_html'); ?>
+					<?php } ?>
+				
+					
 				
 				<?php endwhile; ?>
 				</div>
@@ -137,6 +164,19 @@ var lastPrompt=0;
 		<?php if(get_field("distribution")) { ?>
 			<h2>Distribution</h2>
 			<?php the_field("distribution"); ?>
+		<?php } ?>
+		
+		<?php if(get_field("crystallographic_data")) { ?>
+			<h2>Crystallographic Data</h2>
+			<?php the_field("crystallographic_data"); ?>
+		<?php } ?>
+		
+		<?php if(get_field("references")) { ?>
+			<?php the_field("references"); ?>
+		<?php } ?>
+		
+		<?php if(get_field("footer")) { ?>
+			<?php the_field("footer"); ?>
 		<?php } ?>
 		
 		<!--<?php
