@@ -5,15 +5,22 @@ $( document ).ready(function() {
 		var stdControls = $(".stdControls").height();
 		var headerHeight = $(".site-branding").height();
 		
+		var appDivHeight = $("#jmolApplet0_appletdiv").height();
+		var appDivWidth = $("#jmolApplet0_appletdiv").width();
+		
 		$(".visuals, .contentColumn").css("top", headerHeight);
 		$("#jmolApplet0_appletinfotablediv").height($(".contentColumn").height()-stdControls);
+		//$("#jmolApplet0_appletinfotablediv").width(appDivWidth);
+		
+		//$("#jmolApplet0_appletdiv canvas").attr("height",appDivHeight).height(appDivHeight);
+		//$("#jmolApplet0_appletdiv canvas").attr("width",appDivWidth).width(appDivWidth);
 		
 		
 	}
 	
 	correctAppletSize();
 	
-	//setTimeout(function() { alert("hi"); },5000);
+	//setTimeout(function() { correctAppletSize(); },5000);
 	
 	
 	$(window).resize(function() {

@@ -55,9 +55,16 @@ jmol_isReady = function(applet) {
 	//Jmol._getElement(applet, "appletdiv").style.border="1px solid blue"
 }		
 
+//var stdControls = $(".stdControls").height();
+//var headerHeight = $(".site-branding").height();
+var windowHeight = $(window).height();
+
+var finalHeight = windowHeight - 80;
+//alert(finalHeight);
+
 var Info = {
 	width: '100%',
-	height: 300,
+	height: finalHeight,
 	debug: false,
 	color: "0x112233",
 	addSelectionOptions: false,
@@ -78,7 +85,7 @@ var Info = {
 }
 
 $(document).ready(function() {
-  $("#appdiv").html(Jmol.getAppletHtml("jmolApplet0", Info))
+  $("#appdiv").html(Jmol.getAppletHtml("jmolApplet0", Info)) 
 })
 var lastPrompt=0;
 
