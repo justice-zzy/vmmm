@@ -66,8 +66,8 @@ var Info = {
 	//jarPath: themePath+"/jsmol/java",// this needs to point to where the java directory is.
 	//jarFile: "JmolAppletSigned.jar",
 	//isSigned: true,
-	//script: "set antialiasDisplay;load "+uploadedFile+"",
-	script: "load "+themePath+"/jsmol/data/caffeine.mol",
+	script: "set antialiasDisplay;load "+uploadedFile+"",
+	//script: "load "+themePath+"/jsmol/data/caffeine.mol",
 	serverURL: themePath+"/jsmol/php/jsmol.php",
 	readyFunction: jmol_isReady,
 	disableJ2SLoadMonitor: true,
