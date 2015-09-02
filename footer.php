@@ -13,16 +13,14 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'vmmm' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'vmmm' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'vmmm' ), 'vmmm', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
+			Virtual Museum of Minerals and Molecules | &copy; Copyright <?php echo date("Y"); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
 
-<script src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>
+<!--<script src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>-->
 
 </body>
 </html>

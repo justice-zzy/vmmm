@@ -78,6 +78,114 @@ function vmmm_setup() {
 endif; // vmmm_setup
 add_action( 'after_setup_theme', 'vmmm_setup' );
 
+
+if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
+function my_jquery_enqueue() {
+   wp_deregister_script('jquery');
+   wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js", false, null);
+   wp_enqueue_script('jquery');
+}
+
+/**** Search Suggest functionality ****/
+add_action('wp_enqueue_scripts', 'se_wp_enqueue_scripts');
+function se_wp_enqueue_scripts() {
+    wp_enqueue_script('suggest',array( 'jquery' ));
+    
+    wp_enqueue_script( 'vmmm-suggest', get_template_directory_uri() . '/js/jquery.suggest.js', array(), '20160902', true );
+    
+    wp_enqueue_script( 'vmmm-fastclick', get_template_directory_uri() . '/js/fastclick.js', array(), '20160902', true );
+    wp_enqueue_script( 'vmmm-detectbrowser', get_template_directory_uri() . '/js/detectbrowser.js', array(), '20160902', true );
+    wp_enqueue_script( 'vmmm-main', get_template_directory_uri() . '/js/main.js', array(), '20160902', true );
+    
+}
+
+
+add_action('wp_head', 'se_wp_head');
+function se_wp_head() {
+?>
+<script type="text/javascript">
+    
+	
+	var se_ajax_url = '<?php echo admin_url('admin-ajax.php','http'); ?>?action=se_lookup';
+	var se_ajax_url_https = '<?php echo admin_url('admin-ajax.php','https'); ?>?action=se_lookup';
+	
+	var se_ajax_url = "//"+se_ajax_url.replace(/.*?:\/\//g, "");
+	
+	//console.log(se_ajax_url);
+    jQuery(document).ready(function() {
+	    
+	  	//console.log(se_ajax_url2);
+	  	$.ajax({
+		  url: se_ajax_url
+		}).error(function(msg) {
+				$.ajax({
+				  url: se_ajax_url_https
+				}).error(function(msg) {
+					console.log("The connection to the admin interface has failed.");	
+					
+				}).done(function(msg) {
+				 
+				  var se_ajax_array = msg.split('~');
+				  		  
+				  
+				  	jQuery('.search-field').suggest(se_ajax_array, {
+			         suggestionColor   : '#cccccc',
+					 moreIndicatorClass: 'suggest-more',
+					 moreIndicatorText : '&hellip;'
+		        	});
+				});
+			
+		}).done(function(msg) {
+		 
+		  var se_ajax_array = msg.split('~');
+		  		  
+		  
+		  	jQuery('.search-field').suggest(se_ajax_array, {
+	         suggestionColor   : '#cccccc',
+			 moreIndicatorClass: 'suggest-more',
+			 moreIndicatorText : '&hellip;'
+        	});
+		});
+		
+	   //console.log(se_ajax_url3);
+        
+    });
+</script>
+<?php
+}
+
+add_action('wp_ajax_se_lookup', 'se_lookup');
+add_action('wp_ajax_nopriv_se_lookup', 'se_lookup');
+
+function se_lookup() {
+    global $wpdb;
+    
+    
+
+    $search = wpdb::esc_like($_REQUEST['q']);
+
+    $query = 'SELECT ID,post_title FROM ' . $wpdb->posts . '
+        WHERE post_title LIKE \'' . $search . '%\'
+        AND post_status = \'publish\'
+        ORDER BY post_title ASC';
+    
+    //$post_array = [];
+    foreach ($wpdb->get_results($query) as $row) {
+        
+        
+        $post_title = $row->post_title;
+        //$id = $row->ID;
+
+        //$meta = get_post_meta($id, 'YOUR_METANAME', TRUE);
+
+        echo $post_title . "~";
+       
+    }
+
+    die();
+}
+
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *

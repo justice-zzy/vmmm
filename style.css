@@ -897,7 +897,8 @@ object {
 @import url(http://fonts.googleapis.com/css?family=Raleway:700,300|Roboto:400,700);
 
 body {
-	font-family: "Raleway";
+	/*font-family: "Raleway";*/
+	font-family: "proxima-nova",sans-serif;
 }
 
 .cf:before,
@@ -954,13 +955,25 @@ height: auto;
 z-index: -100;
 -webkit-transform: translateX(-50%) translateY(-50%);
 transform: translateX(-50%) translateY(-50%);
-background: url(polina.jpg) no-repeat;
+background: url("img/molecules.png") no-repeat;
 background-size: cover;
 /*-webkit-filter: blur(15px);
   -moz-filter: blur(15px);
   -o-filter: blur(15px);
   -ms-filter: blur(15px);
   filter: blur(15px);*/
+}
+
+.search-form > label > div {
+	padding-bottom: 0px !important;
+}
+
+.search-form > label > div > div {
+	padding-top: 16px !important;
+}
+
+.search-form .suggest-more {
+	display: none !important;
 }
 
 .page-template-page-home #content {
@@ -997,7 +1010,8 @@ background-size: cover;
 
 .page-template-page-home .site-main .entry-content {
 	font-size: 12px;
-	font-family: "Open Sans";
+	/*font-family: "Open Sans";*/
+	font-family: "proxima-nova",sans-serif;
 	color: rgba(255,255,255,0.7);
 	
 }
@@ -1108,6 +1122,24 @@ h1.site-title a svg {
 	color: rgba(255,255,255,0.9) !important; 
 }
 
+.site-content {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 76px;
+	padding-top: 50px;
+}
+
+.site-footer {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	background: rgba(0,0,0,0.2);
+	color: #939393;
+	padding: 1em;
+	font-size: 12px;
+}
+
 .entry-content {
 	margin-top: 0px;
 	
@@ -1125,11 +1157,13 @@ h1.site-title a svg {
 }
 
 .stdControls a {
-	font-family: "Raleway";
+	position: relative;
+	font-family: "proxima-nova",sans-serif;
 	color: rgba(255,255,255,0.7);
 	display: inline-block;
 	float: left;
 	padding: 14px;
+	padding-left: 32px;
 	border-right: 1px solid rgba(255,255,255,0.1);
 	text-decoration: none;
 	line-height: 1em;
@@ -1141,9 +1175,30 @@ h1.site-title a svg {
 	font-weight: 300;
 }
 
+.stdControls a:before {
+	content: "";
+	box-sizing: border-box;
+	display: block;
+	width: 12px;
+	height: 12px;
+	
+	position: absolute;
+	top: 14px;
+	left: 12px;
+	z-index:1;
+	border-radius: 30em;
+	border: 2px solid rgba(255,255,255,0.8);
+	
+}
+
 .stdControls a:hover {
 	background: rgba(255,255,255,0.2);
 	border-right: 1px solid rgba(255,255,255,0);
+}
+
+.stdControls a:active, .stdControls a:focus {
+	outline: none;
+	
 }
 
 .stdControls a.selected {
@@ -1152,14 +1207,31 @@ h1.site-title a svg {
 	color: rgba(0,0,0,0.5);
 }
 
+.stdControls a.selected:before {
+	content: "";
+	box-sizing: border-box;
+	display: block;
+	width: 12px;
+	height: 12px;
+	
+	position: absolute;
+	top: 14px;
+	left: 12px;
+	z-index:1;
+	border-radius: 30em;
+	border: 2px solid #3e3e3e;
+	box-shadow: inset 0px 0px 0px 2px #dbba67;
+	background: #3e3e3e;
+}
+
+
 .logged-in .visuals, .logged-in .contentColumn {
 	padding-top: 32px;
+	margin-top: 32px;
 }
 
 .visuals {
-	
 	width: 50%;
-	
 	position: fixed;
 	bottom: 0px;
 	left: 0px;
@@ -1179,7 +1251,7 @@ h1.site-title a svg {
 	right: 0px;
 	top: 90px;
 	z-index:2;
-	font-family: "Roboto";
+	font-family: "proxima-nova",sans-serif;
 }
 
 .contentColumn h1.entry-title {
@@ -1232,31 +1304,22 @@ h1.site-title a svg {
 
 .key {
 	
-	display: flex;
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	  display: -ms-flexbox;      /* TWEENER - IE 10 */
+	  display: -webkit-flex;     /* NEW - Chrome */
+	  display: flex;
 }
 
 .key .element {
 	flex: 0 auto; 
+	-webkit-flex: 0 auto;
 	flex-grow: 1;
+	-webkit-flex-grow: 1;
 	text-align: center;
 	font-weight: bold;
 }
 
-.elementTable {
-  font-family: Arial, Helvetica, Verdana, sans-serif;
-  font-size: 1em;
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  background-color: black;
-}
-
-.buttonText { 
-  font-family: Arial, Helvetica, Verdana, sans-serif;
-  font-size: 12px;
-  color: white; 
-  background-color: black
-}
 /* Jmol default table of CPK atom colors. */
 /* ghemical colors with a few proposed modifications. */
 /* source: \src\org\jmol\viewer\JmolConstants.java */
@@ -1374,3 +1437,5 @@ h1.site-title a svg {
 #OH {color: #FF1493}  /* not an element */
 #H2O {color: #FF1493}  /* not an element */
 #WAT {color: #0000FF}  /* not an element */
+
+
