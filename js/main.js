@@ -29,14 +29,94 @@ $( document ).ready(function() {
 	});
 	
 	$(".highlightingFeatures a").click(function(e) {
+		//$(".stdControls a").removeClass("selected");
+		
 		$(".highlightingFeatures a").removeClass("selected");
 		$(this).addClass("selected");
 	});
 	
+
+	
 	$(".stdControls a").click(function(e) {
+		
+		if($(this).hasClass("selected")) {
+			//console.log("already selected");
+		} else {
+			
+			$(this).removeAttr("counter");
+		}
+		
+		//$(this).attr("counter",elemclicked);	
 		$(".stdControls a").removeClass("selected");
+		
+		
+		
 		$(this).addClass("selected");
+		
+		var elem = $(this);
+		var nextelem = $(this).next();
+		var label = $(this).text();
+		
+		if(label == "reset" || label == "Reset" || label == "RESET") {
+			setTimeout(function() {
+				$(elem).removeClass("selected");	
+			},1000);
+			
+		}
+		
+		
+		
+		if($(this).attr("counter")) {
+			var tempcount = $(this).attr("counter");
+			tempcount = parseInt(tempcount);
+			tempcount = tempcount + 1;
+			$(this).attr("counter",tempcount);
+		} else {
+			var tempcount = 0;
+			$(this).attr("counter",tempcount);
+		}
+		
+		if($(nextelem).hasClass("nestedGroup")) {
+			var nestedCount = 0
+			
+			$(nextelem).find("a").each(function() {
+				
+				nestedCount = nestedCount + 1;
+				$(this).attr("data-counted",nestedCount);
+				
+				if(tempcount == nestedCount) {
+					e.preventDefault();
+					var action = $(this).attr("data-action");
+					Jmol.script(jmolApplet0, 'script '+action+'')
+					
+					
+				}
+			});
+			
+			$(elem).attr("nestedCount",nestedCount);
+		}
+		
+		
+		
+		if(tempcount > nestedCount) {
+			var action = $(elem).attr("data-action");
+			//Jmol.script(jmolApplet0, 'script '+action+'');
+			$(this).attr("counter","0");
+			
+		}
 	});
+	
+	
+	/*$(".stdControls a").each(function(e) {
+		
+		var elem = $(this);
+		var label = $(this).text();
+		
+		if(label == "reset" || label == "Reset" || label == "RESET") {
+			$(elem).addClass("reset");
+			
+		}
+	});*/
 
 		
 		

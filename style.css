@@ -1191,6 +1191,14 @@ h1.site-title a svg {
 	
 }
 
+.stdControls a.reset, .stdControls a.Reset, .stdControls a.RESET {
+	padding-left: 14px;
+}
+
+.stdControls a.reset:before, .stdControls a.Reset:before, .stdControls a.RESET:before {
+	display: none;
+}
+
 .stdControls a:hover {
 	background: rgba(255,255,255,0.2);
 	border-right: 1px solid rgba(255,255,255,0);
@@ -1222,6 +1230,15 @@ h1.site-title a svg {
 	border: 2px solid #3e3e3e;
 	box-shadow: inset 0px 0px 0px 2px #dbba67;
 	background: #3e3e3e;
+}
+
+.stdControls a.reset.selected:before, .stdControls a.Reset.selected:before, .stdControls a.RESET.selected:before {
+	display: none;
+		
+}
+
+.stdControls div.nestedGroup {
+	display: none;
 }
 
 

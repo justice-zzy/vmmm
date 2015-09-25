@@ -24,6 +24,10 @@
 				
 							
 var themePath = "<?php echo get_template_directory_uri(); ?>";
+
+var molvis = "<?php the_field('molvis'); ?>";
+
+var molname = "<?php the_field('moleculemineral_name'); ?>"
 var uploadedFile = "<?php the_field('mol_file'); ?>";
 
 
@@ -62,7 +66,30 @@ var windowHeight = $(window).height();
 var finalHeight = windowHeight - 140;
 //alert(finalHeight);
 
-var Info = {
+if(molvis == "name") {
+	var Info = {
+	width: '100%',
+	height: finalHeight,
+	debug: false,
+	color: "0x112233",
+	addSelectionOptions: false,
+	use: "WEBGL HTML5",   // JAVA HTML5 WEBGL are all options
+	j2sPath: themePath+"/jsmol/j2s", // this needs to point to where the j2s directory is.
+	//jarPath: themePath+"/jsmol/java",// this needs to point to where the java directory is.
+	//jarFile: "JmolAppletSigned.jar",
+	//isSigned: true,
+	script: "set antialiasDisplay;load '"+molname+"'",
+	//script: "load "+themePath+"/jsmol/data/caffeine.mol",
+	serverURL: themePath+"/jsmol/php/jsmol.php",
+	readyFunction: jmol_isReady,
+	disableJ2SLoadMonitor: true,
+	disableInitialConsole: true,
+  	allowJavaScript: true
+	//defaultModel: "$dopamine",
+	//console: "none", // default will be jmolApplet0_infodiv, but you can designate another div here or "none"
+	}
+} else {
+	var Info = {
 	width: '100%',
 	height: finalHeight,
 	debug: false,
@@ -82,7 +109,10 @@ var Info = {
   	allowJavaScript: true
 	//defaultModel: "$dopamine",
 	//console: "none", // default will be jmolApplet0_infodiv, but you can designate another div here or "none"
+	}
 }
+
+
 
 $(document).ready(function() {
   $("#appdiv").html(Jmol.getAppletHtml("jmolApplet0", Info)) 
@@ -120,7 +150,32 @@ var lastPrompt=0;
 				<?php while ( have_rows('controls_below_visuals') ) : the_row(); ?>
 				
 					<?php if( get_row_layout() == 'add_formatted_control' ) { ?>
-							<a href="javascript:Jmol.script(jmolApplet0, 'script <?php the_sub_field('control_action'); ?>')" class="<?php the_sub_field('control_label'); ?>"><?php the_sub_field('control_label'); ?></a>
+							<a href="javascript:Jmol.script(jmolApplet0, 'script <?php the_sub_field('control_action'); ?>')" class="<?php the_sub_field('control_label'); ?>" data-action="<?php the_sub_field('control_action'); ?>"><?php the_sub_field('control_label'); ?></a>
+							
+							<?php if(get_sub_field('is_this_a_nested_control')) { ?>
+									<?php
+
+										// check if the repeater field has rows of data
+										if( have_rows('nested_controls') ): ?>
+											<div class="nestedGroup">
+										 	
+										    <?php while ( have_rows('nested_controls') ) : the_row(); ?>
+										
+										        
+										        <a href="javascript:Jmol.script(jmolApplet0, 'script <?php the_sub_field('nested_control_action'); ?>')" data-action="<?php the_sub_field('nested_control_action'); ?>"><?php the_sub_field('nested_control_action'); ?></a>
+										
+										   <?php endwhile; ?>
+											</div>
+										<?php else :
+										
+										    // no rows found
+										
+										endif;
+										
+										?>
+							<?php } ?>
+							
+							
 					<?php } else { ?>
 							<?php the_sub_field('custom_html'); ?>
 					<?php } ?>
