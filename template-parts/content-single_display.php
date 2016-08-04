@@ -26,6 +26,7 @@
 var themePath = "<?php echo get_template_directory_uri(); ?>";
 
 var molvis = "<?php the_field('molvis'); ?>";
+var loadscript = "<?php the_field('load_script'); ?>";
 
 var molname = "<?php the_field('moleculemineral_name'); ?>"
 var uploadedFile = "<?php the_field('mol_file'); ?>";
@@ -89,34 +90,53 @@ if(molvis == "name") {
 	//console: "none", // default will be jmolApplet0_infodiv, but you can designate another div here or "none"
 	}
 } else {
-	var Info = {
-	width: '100%',
-	height: finalHeight,
-	debug: false,
-	color: "0x112233",
-	addSelectionOptions: false,
-	use: "WEBGL HTML5",   // JAVA HTML5 WEBGL are all options
-	j2sPath: themePath+"/jsmol/j2s", // this needs to point to where the j2s directory is.
-	//jarPath: themePath+"/jsmol/java",// this needs to point to where the java directory is.
-	//jarFile: "JmolAppletSigned.jar",
-	//isSigned: true,
-	script: "set antialiasDisplay;load "+uploadedFile+"",
-	//script: "load "+themePath+"/jsmol/data/caffeine.mol",
-	serverURL: themePath+"/jsmol/php/jsmol.php",
-	readyFunction: jmol_isReady,
-	disableJ2SLoadMonitor: true,
-	disableInitialConsole: true,
-  	allowJavaScript: true
-	//defaultModel: "$dopamine",
-	//console: "none", // default will be jmolApplet0_infodiv, but you can designate another div here or "none"
-	}
+	
+	
+		var Info = {
+		width: '100%',
+		height: finalHeight,
+		debug: false,
+		color: "0x112233",
+		addSelectionOptions: false,
+		use: "WEBGL HTML5",   // JAVA HTML5 WEBGL are all options
+		j2sPath: themePath+"/jsmol/j2s", // this needs to point to where the j2s directory is.
+		//jarPath: themePath+"/jsmol/java",// this needs to point to where the java directory is.
+		//jarFile: "JmolAppletSigned.jar",
+		//isSigned: true,
+		script: "set antialiasDisplay;load "+uploadedFile+"",
+		//script: "load "+themePath+"/jsmol/data/caffeine.mol",
+		serverURL: themePath+"/jsmol/php/jsmol.php",
+		readyFunction: jmol_isReady,
+		disableJ2SLoadMonitor: true,
+		disableInitialConsole: true,
+	  	allowJavaScript: true
+		//defaultModel: "$dopamine",
+		//console: "none", // default will be jmolApplet0_infodiv, but you can designate another div here or "none"
+		}
+	
+	
+	
 }
 
 
 
 $(document).ready(function() {
-  $("#appdiv").html(Jmol.getAppletHtml("jmolApplet0", Info)) 
-})
+  $("#appdiv").html(Jmol.getAppletHtml("jmolApplet0", Info));
+  
+   //Jmol.evaluateVar(myJmol, "alert('background red; print backgroundColor')");
+  //Jmol.scriptWait(jmolApplet0, "alert('background red')");
+  
+  
+  if(loadscript) {
+	  Jmol.script(jmolApplet0, 'script <?php the_field('load_script'); ?>');	  
+	  
+	  setTimeout(function() {
+		  Jmol.script(jmolApplet0, 'script <?php the_field('load_script'); ?>');	  
+	  },2000);
+	
+  }
+  
+});
 var lastPrompt=0;
 
 
