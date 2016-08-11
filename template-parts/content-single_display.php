@@ -35,6 +35,7 @@ var uploadedFile = "<?php the_field('mol_file'); ?>";
 
 
 
+
 console.log(uploadedFile);
  
 Jmol._isAsync = false;
@@ -175,18 +176,60 @@ if(molvis == "name") {
 $(document).ready(function() {
   $("#appdiv").html(Jmol.getAppletHtml("jmolApplet0", Info));
   
-   //Jmol.evaluateVar(myJmol, "alert('background red; print backgroundColor')");
-  //Jmol.scriptWait(jmolApplet0, "alert('background red')");
+
+  
+  //In the event of a load script being set, the load script is pulled into JS, evaluated to fix any file paths, then executed.
   
   
   if(loadscript) {
-	  Jmol.script(jmolApplet0, 'script <?php the_field('load_script'); ?>');	  
-	  
-	  setTimeout(function() {
-		  Jmol.script(jmolApplet0, 'script <?php the_field('load_script'); ?>');	  
-	  },2000);
+	jQuery.get(loadscript, function(data) {
+	    //alert(data);
+	    var items = data.split(' ');
+	    
+	    var fileext = ".cif";
+	    
+	    var re = new RegExp('^\\W?' + fileext + '.*$', 'gi');
+	    var matches = [];
+	    for(var i = 0; i < items.length; i++) {
+	        if(items[i].indexOf(fileext) > -1)
+	            matches.push(items[i]);
+	    }
+	    
 	
-  }
+	    
+	    if(matches.length == 0) {
+		    //no matches for cif, attempting mol
+		    var fileext = ".mol";
+	    
+		    var re = new RegExp('^\\W?' + fileext + '.*$', 'gi');
+		    var matches = [];
+		    for(var i = 0; i < items.length; i++) {
+		        if(items[i].indexOf(fileext) > -1)
+		            matches.push(items[i]);
+		    }
+		    
+	    }
+	    
+	   
+		var foundmatch = matches[0];
+		
+		
+		if (foundmatch.substr(-1) === ";") {
+			// if grabbed match has a semicolon at the end, re add it to its replacement.	
+			uploadedFile = uploadedFile + ";";
+		}
+
+		
+		data = data.replace(foundmatch,uploadedFile);
+		
+		//Load fixed script
+		Jmol.script(jmolApplet0,'load ' + data +'');	
+		
+		
+	    
+	});
+
+}
   
 });
 var lastPrompt=0;
@@ -263,8 +306,8 @@ var lastPrompt=0;
 		<header class="entry-header">
 			
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-
 		
+				
 	</header><!-- .entry-header -->
 		<?php the_content(); ?>
 		
@@ -320,4 +363,3 @@ var lastPrompt=0;
 		<?php vmmm_entry_footer(); ?>
 	</footer>--><!-- .entry-footer -->
 </article><!-- #post-## -->
-
