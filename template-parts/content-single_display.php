@@ -174,9 +174,8 @@ if(molvis == "name") {
 
 
 $(document).ready(function() {
+	//run the initial load script
   $("#appdiv").html(Jmol.getAppletHtml("jmolApplet0", Info));
-  
-
   
   //In the event of a load script being set, the load script is pulled into JS, evaluated to fix any file paths, then executed.
   
@@ -195,7 +194,6 @@ $(document).ready(function() {
 	            matches.push(items[i]);
 	    }
 	    
-	
 	    
 	    if(matches.length == 0) {
 		    //no matches for cif, attempting mol
@@ -209,7 +207,6 @@ $(document).ready(function() {
 		    }
 		    
 	    }
-	    
 	   
 		var foundmatch = matches[0];
 		
@@ -221,6 +218,7 @@ $(document).ready(function() {
 
 		
 		data = data.replace(foundmatch,uploadedFile);
+		
 		
 		//Load fixed script
 		Jmol.script(jmolApplet0,'load ' + data +'');	
