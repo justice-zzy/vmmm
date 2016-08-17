@@ -43,6 +43,49 @@ include_once( get_stylesheet_directory() . '/acf/acf.php' );
 
 
 
+function browse_displays()
+{
+    $custom_taxonomy='gallery-wing';  
+    $custom_terms = get_terms($custom_taxonomy);    
+    $str_return='<ul>';
+    foreach($custom_terms as $custom_term) 
+    {
+        wp_reset_query();
+        $args = array(
+            'post_type' => 'display',
+            'tax_query' => array(               
+                array(
+                    'taxonomy' => $custom_taxonomy,
+                    'field' => 'slug',
+                    'terms' => $custom_term->slug,
+                ),
+            ),
+        );  
+
+        $loop = new WP_Query($args);
+
+        $term_name=$custom_term->name;
+        $term_slug=$custom_term->slug;
+        $term_link=get_term_link($term_slug, $custom_taxonomy);
+
+        $str_return.='<li><a href="'.$term_link.'">'.$term_name.'</a>';
+
+        if($loop->have_posts()) 
+        {
+            $str_return.='<ol>';
+
+            while($loop->have_posts()) : $loop->the_post();
+                $str_return.='<li><a href="'.get_permalink().'">'.get_the_title().'</a></li> ';
+            endwhile;
+
+            $str_return.='</ol>';           
+         }
+         $str_return.='</li>';
+    }
+    $str_return.='</ul>';
+    return $str_return;
+}
+
 
 if ( ! function_exists( 'vmmm_setup' ) ) :
 /**

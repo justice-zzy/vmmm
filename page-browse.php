@@ -8,10 +8,10 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
+		
+			<?php echo browse_displays(); ?>
 
-			<?php //while ( have_posts() ) : the_post(); ?>
-
-				<?php $custom_terms = get_terms('gallery-wing');
+				<?php /*$custom_terms = get_terms('gallery-wing');
 
 						foreach($custom_terms as $custom_term) {
 						    wp_reset_query();
@@ -33,7 +33,7 @@ get_header(); ?>
 						            echo '<a href="'.get_permalink().'">'.get_the_title().'</a>';
 						        endwhile;
 						     }
-						} ?>
+						}*/ ?>
 
 				
 
