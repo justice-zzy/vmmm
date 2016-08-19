@@ -913,6 +913,11 @@ h2 {
 	font-size: 1em;
 }
 
+.wingGroup h2 {
+	padding-bottom: 0.7em;
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
 h3 {
 	font-weight: 300;
 	
@@ -928,11 +933,13 @@ a.linkstyle2:link, a.linkstyle2:visited {
 	color: #36a9fb;
 	border-radius: 3px;
 	text-decoration: none;
-	background: rgba(0,0,0,0.05);
+	border: 1px solid rgba(0,0,0,0.1);
 }
 
 a.linkstyle2:hover {
-	background: rgba(0,0,0,0.1);
+	border: 1px solid rgba(0,0,0,0.0);
+	background: #36a9fb;
+	color: #fff;
 }
 
 .cf:before,
