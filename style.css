@@ -1337,6 +1337,18 @@ h1.site-title a svg {
 	font-weight: bold;
 }
 
+.site-main:after {
+	content: '';
+	clear: both;
+}
+
+.wingGroup {
+	width: 50%;
+	float: left;
+	box-sizing: border-box;
+	padding-right: 4%;
+}
+
 /* Jmol default table of CPK atom colors. */
 /* ghemical colors with a few proposed modifications. */
 /* source: \src\org\jmol\viewer\JmolConstants.java */

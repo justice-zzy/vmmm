@@ -9,35 +9,90 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 		
-			<?php echo browse_displays(); ?>
-
-				<?php /*$custom_terms = get_terms('gallery-wing');
-
-						foreach($custom_terms as $custom_term) {
-						    wp_reset_query();
-						    $args = array('post_type' => 'display',
-						        'tax_query' => array(
-						            array(
-						                'taxonomy' => 'gallery-wing',
-						                'field' => 'slug',
-						                'terms' => $custom_term->slug,
-						            ),
-						        ),
-						     );
+			<?php while ( have_posts() ) : the_post(); ?>
 						
-						     $loop = new WP_Query($args);
-						     if($loop->have_posts()) {
-						        echo '<h2>'.$custom_term->name.'</h2>';
-						
-						        while($loop->have_posts()) : $loop->the_post();
-						            echo '<a href="'.get_permalink().'">'.get_the_title().'</a>';
-						        endwhile;
-						     }
-						}*/ ?>
+							<?php
 
-				
+							// check if the flexible content field has rows of data
+							if( have_rows('browse_layouts') ):
+							
+							 	// loop through the rows of data
+							    while ( have_rows('browse_layouts') ) : the_row();
+							
+									// check current row layout
+							        if( get_row_layout() == 'wing' ): ?>
+										<div class="wingGroup">
+										<h2><?php the_sub_field('wing_name') ?></h2>
+										
+							        	<?php // check if the nested repeater field has rows of data
+							        	if( have_rows('galleries') ):
+							
+										 	echo '<div class="galleryGroup">';
+							
+										 	// loop through the rows of data
+										    while ( have_rows('galleries') ) : the_row(); ?>
+												<h3><?php the_sub_field('gallery_title'); ?></h3>
+												<?php 
+													$terms = get_sub_field('gallery_category');
+													
+													 ?>
+													<?php foreach( $terms as $term ): ?>
+													
+													<?php $args = array(
+														'post_type'       => 'display',
+														/** Category slug, needs to be dynamic from widget selection **/
+														'tax_query' => array(
+															array(
+																'taxonomy' => 'gallery-wing',
+																'field' => 'id',
+																'terms' => $term
+															)
+														)
+													); 
+													
+													$Apps = new WP_Query( $args );
+											        if( $Apps -> have_posts() ) {
+											          while( $Apps -> have_posts() ) {
+											            $Apps -> the_post();
+											            //$postid = get_the_ID();
+											            ?>
+											              <a href="<?php the_permalink(); ?>"><?php the_title() ?></a>
+											              
+											                <?php //the_excerpt() ?>
+											                
+											              
+											            <?php
+											          }
+											          wp_reset_query();
+											        }
+													
+													?>
 
-			<?php //endwhile; // End of the loop. ?>
+
+												<?php endforeach; ?>
+							
+												<?php 
+							
+											endwhile;
+							
+											echo '</div>';
+							
+										endif; ?>
+										</div>
+							        <?php endif;
+									
+							
+							    endwhile;
+							
+							else :
+							
+							    // no layouts found
+							
+							endif;
+							
+							?>
+
+			<?php endwhile; // End of the loop. ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

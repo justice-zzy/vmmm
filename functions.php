@@ -58,6 +58,7 @@ function browse_displays()
                     'taxonomy' => $custom_taxonomy,
                     'field' => 'slug',
                     'terms' => $custom_term->slug,
+                    'include_children' => false,
                 ),
             ),
         );  
