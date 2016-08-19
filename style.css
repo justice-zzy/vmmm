@@ -894,11 +894,45 @@ object {
 
 /****** SEPERATE LATER ******/
 
-@import url(http://fonts.googleapis.com/css?family=Raleway:700,300|Roboto:400,700);
+/*@import url(https://fonts.googleapis.com/css?family=Raleway:700,300|Roboto:400,700|Open+Sans:400,700);*/
 
 body {
 	/*font-family: "Raleway";*/
 	font-family: "proxima-nova",sans-serif;
+}
+
+h1.customPageTitle {
+	font-size: 1.6em;
+	color: #d0b24f;
+	font-weight: 300;
+}
+
+h2 {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 1em;
+}
+
+h3 {
+	font-weight: 300;
+	
+}
+
+a.linkstyle2:link, a.linkstyle2:visited {
+	display: inline-block;
+	margin-right: 2%;
+	margin-bottom: 1%;
+	padding: 0.6em;
+	padding-top: 0.1em;
+	padding-bottom: 0.1em;
+	color: #36a9fb;
+	border-radius: 3px;
+	text-decoration: none;
+	background: rgba(0,0,0,0.05);
+}
+
+a.linkstyle2:hover {
+	background: rgba(0,0,0,0.1);
 }
 
 .cf:before,

@@ -8,7 +8,7 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-		
+		<!--<h1 class="customPageTitle">Browse the Museum</h1>-->
 			<?php while ( have_posts() ) : the_post(); ?>
 						
 							<?php
@@ -56,7 +56,7 @@ get_header(); ?>
 											            $Apps -> the_post();
 											            //$postid = get_the_ID();
 											            ?>
-											              <a href="<?php the_permalink(); ?>"><?php the_title() ?></a>
+											              <a href="<?php the_permalink(); ?>" class="linkstyle2"><?php the_title() ?></a>
 											              
 											                <?php //the_excerpt() ?>
 											                
