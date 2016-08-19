@@ -1509,3 +1509,29 @@ h1.site-title a svg {
 #WAT {color: #0000FF}  /* not an element */
 
 
+
+@media screen and (max-width: 800px) {
+
+	.wingGroup {
+		float: none;
+		width: 100%;
+		padding-right: 0px;
+	}
+	
+	.visuals, .contentColumn {
+		position: relative;
+		width: 100%;
+		top: 0px !important;
+	}
+	
+	.visuals #appdiv {
+		height: 400px;
+	}
+	
+	.single-display .site-content {
+		padding: 0px;
+	}
+	
+	
+	
+}
