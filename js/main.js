@@ -2,26 +2,43 @@ $( document ).ready(function() {
 	
 	
 	function correctAppletSize() {
-		var stdControls = $(".stdControls").height();
-		var key = $(".key").height();
-		var headerHeight = $(".site-branding").height();
 		
-		var appDivHeight = $("#jmolApplet0_appletdiv").height();
-		var appDivWidth = $("#jmolApplet0_appletdiv").width();
+		var windowW = $(window).width();
+		var windowH = $(window).height();
 		
-		$(".visuals, .contentColumn").css("top", headerHeight);
-		$("#jmolApplet0_appletinfotablediv").height($(".contentColumn").height()-stdControls-key);
-		//$("#jmolApplet0_appletinfotablediv").width(appDivWidth);
+		if(windowW <= 800) {
+			var stdControls = $(".stdControls").height();
+			var key = $(".key").height();
+			var headerHeight = $(".site-branding").height();
+			
+			var appDivHeight = $("#jmolApplet0_appletdiv").height();
+			var appDivWidth = $("#jmolApplet0_appletdiv").width();
+			
+			$(".visuals, .contentColumn").css("top", headerHeight);
+			$("#jmolApplet0_appletinfotablediv").height((windowH/2)-headerHeight-stdControls-key);
+			
+		} else {
 		
-		//$("#jmolApplet0_appletdiv canvas").attr("height",appDivHeight).height(appDivHeight);
-		//$("#jmolApplet0_appletdiv canvas").attr("width",appDivWidth).width(appDivWidth);
-		
+			var stdControls = $(".stdControls").height();
+			var key = $(".key").height();
+			var headerHeight = $(".site-branding").height();
+			
+			var appDivHeight = $("#jmolApplet0_appletdiv").height();
+			var appDivWidth = $("#jmolApplet0_appletdiv").width();
+			
+			$(".visuals, .contentColumn").css("top", headerHeight);
+			$("#jmolApplet0_appletinfotablediv").height($(".contentColumn").height()-stdControls-key);
+			//$("#jmolApplet0_appletinfotablediv").width(appDivWidth);
+			
+			//$("#jmolApplet0_appletdiv canvas").attr("height",appDivHeight).height(appDivHeight);
+			//$("#jmolApplet0_appletdiv canvas").attr("width",appDivWidth).width(appDivWidth);
+		}
 		
 	}
 	
 	correctAppletSize();
 	
-	//setTimeout(function() { correctAppletSize(); },5000);
+	//setTimeout(function() { correctAppletSize(); },3000);
 	
 	
 	$(window).resize(function() {
@@ -32,6 +49,7 @@ $( document ).ready(function() {
 		//$(".stdControls a").removeClass("selected");
 		
 		$(".highlightingFeatures a").removeClass("selected");
+		$(".stdControls a").removeClass("selected");
 		$(this).addClass("selected");
 	});
 	

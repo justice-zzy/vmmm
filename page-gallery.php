@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Browse Displays
+ * Template Name: Gallery Page
  *
  */
 
@@ -11,34 +11,27 @@ get_header(); ?>
 		<!--<h1 class="customPageTitle">Browse the Museum</h1>-->
 			<?php while ( have_posts() ) : the_post(); ?>
 						
-							<?php
+							<?php if( have_rows('gallery_rooms') ): ?>
 
-							// check if the flexible content field has rows of data
-							if( have_rows('browse_layouts') ):
 							
-							 	// loop through the rows of data
-							    while ( have_rows('browse_layouts') ) : the_row();
-							
-									// check current row layout
-							        if( get_row_layout() == 'wing' ): ?>
-										<div class="wingGroup">
-										<h2><?php the_sub_field('wing_name') ?></h2>
+						
+							<?php while( have_rows('gallery_rooms') ): the_row(); ?>
+						
+								<div class="galleryRoom">
+									
+									
+									
+									<?php 
+
+									$term = get_sub_field('room_category');
+									
+									if( $term ) { ?>
+										<?php $termobj = get_term( $term ) ?>
+										<h2><?php echo $termobj->name; ?></h2>
+										<p><?php echo $termobj->description; ?></p>
 										
-							        	<?php // check if the nested repeater field has rows of data
-							        	if( have_rows('galleries') ):
-							
-										 	echo '<div class="galleryGroup">';
-							
-										 	// loop through the rows of data
-										    while ( have_rows('galleries') ) : the_row(); ?>
-												<h3><a href="<?php the_sub_field('gallery_page'); ?>"><?php the_sub_field('gallery_title'); ?></a></h3>
-												<?php 
-													$terms = get_sub_field('gallery_category');
-													
-													 ?>
-													<?php foreach( $terms as $term ): ?>
-													
-													<?php $args = array(
+										
+										<?php $args = array(
 														'post_type'       => 'display',
 														/** Category slug, needs to be dynamic from widget selection **/
 														'tax_query' => array(
@@ -67,30 +60,16 @@ get_header(); ?>
 											        }
 													
 													?>
-
-
-												<?php endforeach; ?>
-							
-												<?php 
-							
-											endwhile;
-							
-											echo '</div>';
-							
-										endif; ?>
-										</div>
-							        <?php endif;
 									
+									<?php } ?>
+						
+								</div>
+						
+							<?php endwhile; ?>
+						
 							
-							    endwhile;
-							
-							else :
-							
-							    // no layouts found
-							
-							endif;
-							
-							?>
+						
+						<?php endif; ?>
 
 			<?php endwhile; // End of the loop. ?>
 

@@ -1329,7 +1329,7 @@ h1.site-title a svg {
 .highlightingFeatures a {
 	background: url("img/magnifyingglass.svg") no-repeat;
 	background-size: 2em;
-	background-position: 0% 50%;
+	background-position: 0% 7px;
 	display: block;
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 	padding: 0.7em;
@@ -1337,15 +1337,16 @@ h1.site-title a svg {
 	text-decoration: none;
 	color: rgba(0,0,0,0.75);
 	font-weight: 700;
-	font-size: 14px;
+	font-size: 16px;
 	outline: none;
+	
 }
 
 .highlightingFeatures a:hover {
 	
 	background: rgba(0,0,0,0.06) url("img/magnifyingglass.svg") no-repeat;
 	background-size: 2em;
-	background-position: 0% 50%;
+	background-position: 0% 7px;
 }
 
 .highlightingFeatures a:active {
@@ -1388,6 +1389,12 @@ h1.site-title a svg {
 	float: left;
 	box-sizing: border-box;
 	padding-right: 4%;
+}
+
+.controlDescription {
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 1.4;
 }
 
 /* Jmol default table of CPK atom colors. */
@@ -1519,18 +1526,59 @@ h1.site-title a svg {
 	}
 	
 	.visuals, .contentColumn {
-		position: relative;
+		/*position: relative;*/
 		width: 100%;
-		top: 0px !important;
+		
+	}
+	
+	.contentColumn {
+		top: 50% !important;
+	}
+	
+	.visuals {
+		bottom: 50%;
 	}
 	
 	.visuals #appdiv {
-		height: 400px;
+		height: 100%;
+		
 	}
 	
 	.single-display .site-content {
 		padding: 0px;
 	}
+	
+	.stdControls {
+		position: absolute;
+		bottom: 0px;
+		left: 0px;
+		right: 0px;
+		z-index:5;
+	}
+	
+	.key {
+		position: absolute;
+		left: 0px;
+		right: 0px;
+		bottom: 50px;
+		z-index:5;
+	}
+	
+	#jmolApplet0_appletinfotablediv {
+		height: 82% !important;
+	}
+	
+	.logged-in .contentColumn, .logged-in .visuals {
+		padding-top: 0px;
+		margin-top: 0px;
+	}
+	
+	.contentColumn {
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	
+	
 	
 	
 	
