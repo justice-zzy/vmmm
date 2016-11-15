@@ -1326,7 +1326,7 @@ h1.site-title a svg {
 	color: #bc9a44;
 }
 
-.highlightingFeatures a {
+.highlightingFeatures a.highlightingLink {
 	background: url("img/magnifyingglass.svg") no-repeat;
 	background-size: 2em;
 	background-position: 0% 7px;
@@ -1395,6 +1395,8 @@ h1.site-title a svg {
 	font-weight: normal;
 	font-size: 14px;
 	line-height: 1.4;
+	padding-left: 2rem;
+	
 }
 
 /* Jmol default table of CPK atom colors. */
