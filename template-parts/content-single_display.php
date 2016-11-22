@@ -321,7 +321,7 @@ var lastPrompt=0;
 				<?php while ( have_rows('controls_after_content') ) : the_row(); ?>
 				
 					<?php if( get_row_layout() == 'add_formatted_control' ) { ?>
-							<a href="javascript:Jmol.script(jmolApplet0, 'script <?php the_sub_field('control_action'); ?>')" class="<?php the_sub_field('control_label'); ?> highlightingLink"><?php the_sub_field('control_label'); ?></a>
+							<a href="javascript:Jmol.script(jmolApplet0, 'script <?php the_sub_field('control_action'); ?>')" class="highlightingLink"><?php the_sub_field('control_label'); ?></a>
 							<div class="controlDescription"><?php the_sub_field('control_description'); ?></div>
 					<?php } else { ?>
 							<?php the_sub_field('custom_html'); ?>
