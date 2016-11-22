@@ -176,10 +176,9 @@ if(molvis == "name") {
 
 $(document).ready(function() {
 	//run the initial load script
-	console.log("delaying...");
-  setTimeout(function() {
+	
 	$("#appdiv").html(Jmol.getAppletHtml("jmolApplet0", Info));	  
-  },4000);
+ 
   
   
   //In the event of a load script being set, the load script is pulled into JS, evaluated to fix any file paths, then executed.
