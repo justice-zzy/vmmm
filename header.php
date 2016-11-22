@@ -24,6 +24,8 @@
 <script type="text/javascript">
 var templateUrl = '<?php home_url(); ?>';
 </script>
+
+
 <?php wp_head(); ?>
 </head>
 

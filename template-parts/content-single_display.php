@@ -20,6 +20,7 @@
 			
 			
 			
+			
 			<script type="text/javascript">
 				
 							
@@ -87,7 +88,7 @@ if(molvis == "name") {
 			//script: "load "+themePath+"/jsmol/data/caffeine.mol",
 			serverURL: themePath+"/jsmol/php/jsmol.php",
 			readyFunction: jmol_isReady,
-			disableJ2SLoadMonitor: true,
+			disableJ2SLoadMonitor: false,
 			disableInitialConsole: true,
 		  	allowJavaScript: true
 			//defaultModel: "$dopamine",
@@ -110,7 +111,7 @@ if(molvis == "name") {
 			//script: "load "+themePath+"/jsmol/data/caffeine.mol",
 			serverURL: themePath+"/jsmol/php/jsmol.php",
 			readyFunction: jmol_isReady,
-			disableJ2SLoadMonitor: true,
+			disableJ2SLoadMonitor: false,
 			disableInitialConsole: true,
 		  	allowJavaScript: true
 			//defaultModel: "$dopamine",
