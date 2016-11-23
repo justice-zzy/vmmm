@@ -281,6 +281,9 @@ function vmmm_content_width() {
 }
 add_action( 'after_setup_theme', 'vmmm_content_width', 0 );
 
+
+
+
 /**
  * Register widget area.
  *
@@ -339,3 +342,6 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/* domain mapping help */
+include "get_domain_mapped_url.php";
