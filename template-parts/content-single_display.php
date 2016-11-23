@@ -28,10 +28,12 @@ var themePath = "<?php echo get_template_directory_uri(); ?>";
 
 var siteurl = "<?php echo site_url(); ?>";
 
+var homeurl = "<?php echo home_url(); ?>"
+console.log(homeurl);
 
 var domainmapped = "<?php $custom_blog_id = '7'; echo get_domain_mapped_url($custom_blog_id); ?>";
-console.log("siteurl: "+siteurl);
-console.log("domainmapped to: " + domainmapped);
+//console.log("siteurl: "+siteurl);
+//console.log("domainmapped to: " + domainmapped);
 
 
 var molvis = "<?php the_field('molvis'); ?>";
