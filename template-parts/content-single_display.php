@@ -91,7 +91,7 @@ if(molvis == "name") {
 			color: "0x112233",
 			addSelectionOptions: false,
 			use: "HTML5 WEBGL",   // JAVA HTML5 WEBGL are all options
-			j2sPath: themePath+"/jsmol/j2s", // this needs to point to where the j2s directory is.
+			j2sPath: themePath2+"/jsmol/j2s", // this needs to point to where the j2s directory is.
 			//jarPath: themePath+"/jsmol/java",// this needs to point to where the java directory is.
 			//jarFile: "JmolAppletSigned.jar",
 			//isSigned: true,
@@ -120,7 +120,7 @@ if(molvis == "name") {
 			//isSigned: true,
 			script: "set antialiasDisplay;load '"+molname+"'",
 			//script: "load "+themePath+"/jsmol/data/caffeine.mol",
-			serverURL: themePath+"/jsmol/php/jsmol.php",
+			serverURL: themePath2+"/jsmol/php/jsmol.php",
 			readyFunction: jmol_isReady,
 			disableJ2SLoadMonitor: false,
 			disableInitialConsole: true,
@@ -140,7 +140,7 @@ if(molvis == "name") {
 		color: "0x112233",
 		addSelectionOptions: false,
 		use: "HTML5 WEBGL",   // JAVA HTML5 WEBGL are all options
-		j2sPath: themePath+"/jsmol/j2s", // this needs to point to where the j2s directory is.
+		j2sPath: themePath2+"/jsmol/j2s", // this needs to point to where the j2s directory is.
 		//jarPath: themePath+"/jsmol/java",// this needs to point to where the java directory is.
 		//jarFile: "JmolAppletSigned.jar",
 		//isSigned: true,
@@ -162,7 +162,7 @@ if(molvis == "name") {
 		color: "0x112233",
 		addSelectionOptions: false,
 		use: "WEBGL HTML5",   // JAVA HTML5 WEBGL are all options
-		j2sPath: themePath+"/jsmol/j2s", // this needs to point to where the j2s directory is.
+		j2sPath: themePath2+"/jsmol/j2s", // this needs to point to where the j2s directory is.
 		//jarPath: themePath+"/jsmol/java",// this needs to point to where the java directory is.
 		//jarFile: "JmolAppletSigned.jar",
 		//isSigned: true,
