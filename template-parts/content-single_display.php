@@ -25,6 +25,7 @@
 				
 							
 var themePath = "<?php echo get_template_directory_uri(); ?>";
+var themePath2 = "https://vmmm.triforce.cals.wisc.edu/wp-content/themes/vmmm";
 
 var siteurl = "<?php echo site_url(); ?>";
 
@@ -90,7 +91,7 @@ if(molvis == "name") {
 			color: "0x112233",
 			addSelectionOptions: false,
 			use: "HTML5 WEBGL",   // JAVA HTML5 WEBGL are all options
-			j2sPath: themePath+"/jsmol/j2s", // this needs to point to where the j2s directory is.
+			j2sPath: themePath2+"/jsmol/j2s", // this needs to point to where the j2s directory is.
 			//jarPath: themePath+"/jsmol/java",// this needs to point to where the java directory is.
 			//jarFile: "JmolAppletSigned.jar",
 			//isSigned: true,
@@ -113,7 +114,7 @@ if(molvis == "name") {
 			color: "0x112233",
 			addSelectionOptions: false,
 			use: "WEBGL HTML5",   // JAVA HTML5 WEBGL are all options
-			j2sPath: themePath+"/jsmol/j2s", // this needs to point to where the j2s directory is.
+			j2sPath: themePath2+"/jsmol/j2s", // this needs to point to where the j2s directory is.
 			//jarPath: themePath+"/jsmol/java",// this needs to point to where the java directory is.
 			//jarFile: "JmolAppletSigned.jar",
 			//isSigned: true,
@@ -139,7 +140,7 @@ if(molvis == "name") {
 		color: "0x112233",
 		addSelectionOptions: false,
 		use: "HTML5 WEBGL",   // JAVA HTML5 WEBGL are all options
-		j2sPath: themePath+"/jsmol/j2s", // this needs to point to where the j2s directory is.
+		j2sPath: themePath2+"/jsmol/j2s", // this needs to point to where the j2s directory is.
 		//jarPath: themePath+"/jsmol/java",// this needs to point to where the java directory is.
 		//jarFile: "JmolAppletSigned.jar",
 		//isSigned: true,
@@ -161,7 +162,7 @@ if(molvis == "name") {
 		color: "0x112233",
 		addSelectionOptions: false,
 		use: "WEBGL HTML5",   // JAVA HTML5 WEBGL are all options
-		j2sPath: themePath+"/jsmol/j2s", // this needs to point to where the j2s directory is.
+		j2sPath: themePath2+"/jsmol/j2s", // this needs to point to where the j2s directory is.
 		//jarPath: themePath+"/jsmol/java",// this needs to point to where the java directory is.
 		//jarFile: "JmolAppletSigned.jar",
 		//isSigned: true,
