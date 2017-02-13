@@ -1,4 +1,5 @@
 (function(Clazz
+,Clazz_getClassName
 ,Clazz_newLongArray
 ,Clazz_doubleToByte
 ,Clazz_doubleToInt
@@ -42,6 +43,7 @@
 ,Clazz_getInheritedLevel
 ,Clazz_getParamsType
 ,Clazz_isAF
+,Clazz_isAB
 ,Clazz_isAI
 ,Clazz_isAS
 ,Clazz_isASS
@@ -684,10 +686,16 @@ Clazz_Console.clear();
 }, "~S");
 Clazz_defineMethod (c$, "outputMsg", 
  function (message) {
-if (message == null) {
+var n = (message == null ? -1 : message.length);
+switch (n) {
+case -1:
 this.output.setText ("");
 return;
-}if (message.charAt (message.length - 1) != '\n') message += "\n";
+default:
+if (message.charAt (n - 1) == '\n') break;
+case 0:
+message += "\n";
+}
 this.output.append (message);
 }, "~S");
 Clazz_defineMethod (c$, "clearContent", 
@@ -865,6 +873,7 @@ return null;
 }, "~S");
 });
 })(Clazz
+,Clazz.getClassName
 ,Clazz.newLongArray
 ,Clazz.doubleToByte
 ,Clazz.doubleToInt
@@ -908,6 +917,7 @@ return null;
 ,Clazz.getInheritedLevel
 ,Clazz.getParamsType
 ,Clazz.isAF
+,Clazz.isAB
 ,Clazz.isAI
 ,Clazz.isAS
 ,Clazz.isASS

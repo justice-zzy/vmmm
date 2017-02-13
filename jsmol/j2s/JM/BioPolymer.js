@@ -1,5 +1,5 @@
 Clazz.declarePackage ("JM");
-Clazz.load (["JU.V3"], "JM.BioPolymer", ["java.lang.Float", "JU.BS", "$.P3"], function () {
+Clazz.load (["JM.Structure", "JU.V3"], "JM.BioPolymer", ["java.lang.Float", "JU.BS", "$.P3"], function () {
 c$ = Clazz.decorateAsClass (function () {
 this.model = null;
 this.monomers = null;
@@ -12,6 +12,7 @@ this.leadAtomIndices = null;
 this.type = 0;
 this.bioPolymerIndexInModel = 0;
 this.monomerCount = 0;
+this.cyclicFlag = 0;
 this.invalidLead = false;
 this.invalidControl = false;
 this.sheetSmoothing = 0;
@@ -23,7 +24,7 @@ this.selectedMonomerCount = 0;
 this.bsSelectedMonomers = null;
 this.haveParameters = false;
 Clazz.instantialize (this, arguments);
-}, JM, "BioPolymer");
+}, JM, "BioPolymer", null, JM.Structure);
 Clazz.prepareFields (c$, function () {
 this.unitVectorX = JU.V3.new3 (1, 0, 0);
 });
@@ -38,6 +39,15 @@ for (var i = this.monomerCount; --i >= 0; ) monomers[i].setBioPolymer (this, i);
 
 this.model = monomers[0].getModel ();
 }, "~A");
+Clazz.overrideMethod (c$, "setAtomBits", 
+function (bs) {
+this.getRange (bs, true);
+}, "JU.BS");
+Clazz.overrideMethod (c$, "setAtomBitsAndClear", 
+function (bs, bsOut) {
+for (var i = this.monomerCount; --i >= 0; ) this.monomers[i].setAtomBitsAndClear (bs, bsOut);
+
+}, "JU.BS,JU.BS");
 Clazz.defineMethod (c$, "getRange", 
 function (bs, isMutated) {
 if (this.monomerCount == 0) return;
@@ -278,13 +288,9 @@ Clazz.defineMethod (c$, "calculateRamachandranHelixAngle",
 function (m, qtype) {
 return NaN;
 }, "~N,~S");
-Clazz.defineMethod (c$, "isRna", 
-function () {
-return (this.monomerCount > 0 && this.monomers[0].isRna ());
-});
 Clazz.defineMethod (c$, "isNucleic", 
 function () {
-return (this.monomerCount > 0 && (this.monomers[0].isDna () || this.monomers[0].isRna ()));
+return (this.monomerCount > 0 && Clazz.instanceOf (this, JM.NucleicPolymer));
 });
 Clazz.defineMethod (c$, "getRangeGroups", 
 function (nResidues, bsAtoms, bsResult) {
@@ -303,6 +309,10 @@ function (polymer, bsA, bsB, vHBonds, nMaxPerResidue, min, checkDistances, dsspI
 Clazz.defineMethod (c$, "getType", 
 function () {
 return this.type;
+});
+Clazz.defineMethod (c$, "isCyclic", 
+function () {
+return ((this.cyclicFlag == 0 ? (this.cyclicFlag = (this.monomerCount >= 4 && this.monomers[0].isConnectedAfter (this.monomers[this.monomerCount - 1])) ? 1 : -1) : this.cyclicFlag) == 1);
 });
 Clazz.defineStatics (c$,
 "TYPE_NOBONDING", 0,
