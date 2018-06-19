@@ -25,7 +25,8 @@
 				
 							
 var themePath = "<?php echo get_template_directory_uri(); ?>";
-var themePath2 = "https://vmmm.triforce.cals.wisc.edu/wp-content/themes/vmmm";
+var themePath2 = "<?php echo get_template_directory_uri(); ?>";
+//var themePath2 = "https://vmmm.triforce.cals.wisc.edu/wp-content/themes/vmmm";
 
 var siteurl = "<?php echo site_url(); ?>";
 
